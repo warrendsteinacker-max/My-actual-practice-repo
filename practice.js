@@ -15,6 +15,6 @@ function loginFlow() {
 loginFlow();
 // Currently logs: 1, 4, 3, 2
 
-
+//got it
 ///Goal: Fix the code so it logs the steps in the correct order for a user login flow:
 //  Start -> Logic -> Database -> Success.
