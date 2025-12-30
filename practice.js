@@ -1,7 +1,7 @@
 const logger = {
   reason: "User Interaction",
   log: function() {
-    setTimeout(function() {
+    setTimeout(() => {
       console.log("Capturing due to:", this.reason);
     }, 1000);
   }
