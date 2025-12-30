@@ -1,10 +1,9 @@
 var trainer = "Master Yoda";
 
 function trainingSession() {
-  console.log("Welcome, " + trainer); 
-  
-  if (true) {
     var trainer = "Darth Vader";
+  if (true) {
+    console.log("Welcome, " + trainer); 
   }
 }
 
