@@ -1,10 +1,14 @@
-const logger = {
-  reason: "User Interaction",
-  log: function() {
-    setTimeout(() => {
-      console.log("Capturing due to:", this.reason);
-    }, 1000);
+const taskManager = {
+  task: "Data Collection",
+  // Regular Function
+  start: function() {
+    console.log("Starting " + this.task);
+  },
+  // Arrow Function
+  stop: () => {
+    console.log("Stopping " + this.task);
   }
 };
 
-logger.log(); // 4
+taskManager.start(); 
+taskManager.stop();
