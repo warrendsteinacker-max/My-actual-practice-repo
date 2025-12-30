@@ -12,3 +12,5 @@ trainingSession();
 
 //Goal: Fix this code so that the console.log inside
 //  the function correctly identifies the global trainer name.
+
+//
