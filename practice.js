@@ -1,20 +1,15 @@
-function loginFlow() {
-  console.log("1. Start Login");
+var trainer = "Master Yoda";
 
-  setTimeout(() => {
-    console.log("4. Success");
-  }, 0);
-
-  Promise.resolve().then(() => {
-    console.log("3. Database Call");
-  });
-
-  console.log("2. Logic Check");
+function trainingSession() {
+  console.log("Welcome, " + trainer); 
+  
+  if (true) {
+    var trainer = "Darth Vader";
+  }
 }
 
-loginFlow();
-// Currently logs: 1, 4, 3, 2
+trainingSession();
+// Currently logs: "Welcome, undefined"
 
-//got it
-///Goal: Fix the code so it logs the steps in the correct order for a user login flow:
-//  Start -> Logic -> Database -> Success.
+//Goal: Fix this code so that the console.log inside
+//  the function correctly identifies the global trainer name.
