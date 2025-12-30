@@ -5,9 +5,9 @@ const taskManager = {
     console.log("Starting " + this.task);
   },
   // Arrow Function
-  stop: () => {
-    console.log("Stopping " + this.task);
-  }
+  stop: function(){
+    console.log("Stopping " + this.task);}
+
 };
 
 taskManager.start(); 
