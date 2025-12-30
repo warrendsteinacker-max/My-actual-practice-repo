@@ -1,15 +1,2 @@
-const taskManager = {
-  task: "Data Collection",
-  // Regular Function
-  start: function() { setTimeout(() => {
-    console.log("Task in progress: " + this.task);
-  }, 1000);
-  },
-  // Arrow Function
-  stop: function(){
-    console.log("Stopping " + this.task);}
-
-};
-
-taskManager.start(); 
-taskManager.stop();
+//Challenge: Create a constructor function Book that takes title and author. Then, add a method 
+//getDetails to its prototype that returns a string: "Title by Author".
