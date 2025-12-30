@@ -1,16 +1,10 @@
-var trainer = "Master Yoda";
-
-function trainingSession() {
-    var trainer = "Darth Vader";
-  if (true) {
-    console.log("Welcome, " + trainer); 
-  }
+function Task(title) {
+  this.title = title;
+  // This is inefficient if we have 10,000 tasks!
+  this.save = function() {
+    console.log(`Saving ${this.title} to Book Collection...`);
+  };
 }
 
-trainingSession();
-// Currently logs: "Welcome, undefined"
-
-//Goal: Fix this code so that the console.log inside
-//  the function correctly identifies the global trainer name.
-
-//
+const t1 = new Task("History");
+const t2 = "Science";
