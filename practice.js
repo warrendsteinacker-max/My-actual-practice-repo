@@ -2,14 +2,14 @@ function loginFlow() {
   console.log("1. Start Login");
 
   setTimeout(() => {
-    console.log("2. Logic Check");
+    console.log("4. Success");
   }, 0);
 
   Promise.resolve().then(() => {
     console.log("3. Database Call");
   });
 
-  console.log("4. Success");
+  console.log("2. Logic Check");
 }
 
 loginFlow();
