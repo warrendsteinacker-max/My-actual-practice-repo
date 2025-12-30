@@ -1,8 +1,9 @@
 const taskManager = {
   task: "Data Collection",
   // Regular Function
-  start: function() {
-    console.log("Starting " + this.task);
+  start: function() { setTimeout(() => {
+    console.log("Task in progress: " + this.task);
+  }, 1000);
   },
   // Arrow Function
   stop: function(){
