@@ -8,30 +8,28 @@
 <body>
     <script>
 
-        
+        let ele = document.getElementsByClassName('.1')
 
 
-        document.addEventListener("click", function c(e){
+        ele.addEventListener("click", function c(e){
 
 
-            if(e.target.id === "1" && once){
-                e.target.textContent = 'clicked once'
-                once = false
-                ++count
+            if(e.target.matches('.2')){
+                e.target.textContent = 'clicked'
             }
-            else if(once === false && count === 1){
-                e.target.textContent = 'clicked twice'
-                ++count
+            if(e.target.matches('.3')){
+                e.target.textContent = 'clicked'
             }
-             else {
-                e.target.textContent = "clicked more than twice"
-                document.removeEventListener('click', c) }
             
         })
 
     </script>
     
 
-    <h1 id="1">hello</h1>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </body>
 </html>
