@@ -9,22 +9,27 @@
     <script>
 
         
-        let once = true
+            let once = true
 
-        let count = 0
+            let count = 0
 
         document.addEventListener("click", function c(e){
+
+            let once = true
+
+            let count = 0
+
             if(e.target.id === "1" && once){
                 e.target.textContent = 'clicked once'
                 once = false
                 ++count
             }
             else if(once === false && count === 1){
-                e.trget.textContent = 'clicked twice'
+                e.target.textContent = 'clicked twice'
                 ++count
             }
              else {
-                e.trget.textContent = "clicked more than twice"
+                e.target.textContent = "clicked more than twice"
                 document.removeEventListener('click', c) }
             
         })
@@ -32,6 +37,6 @@
     </script>
     
 
-    <h1>hello</h1>
+    <h1 id="1">hello</h1>
 </body>
 </html>
