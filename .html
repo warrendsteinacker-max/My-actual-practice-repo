@@ -7,13 +7,31 @@
 </head>
 <body>
     <script>
-        const ele = document.getElementsByClassName('H')
-        function c(e){
-            if(e.target.id == 1){
-                e.trget.textContent = 'h'
+
+        
+        let once = true
+
+        let count = 0
+
+        document.addEventListener("click", function c(e){
+            if(e.target.id === "1" && once){
+                e.target.textContent = 'clicked once'
+                once = false
+                ++count
             }
-            return document.removeEventListener('onClick')
-        }
+            else if(once === false && count === 1){
+                e.trget.textContent = 'clicked twice'
+                ++count
+            }
+             else {
+                e.trget.textContent = "clicked more than twice"
+                document.removeEventListener('click', c) }
+            
+        })
+
     </script>
+    
+
+    <h1>hello</h1>
 </body>
 </html>
