@@ -6,29 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
 
-        let ele = document.getElementsByClassName('1')
+    
+
+    <ul class="f">
+        <li class="ff">a</li>
+        <li class="fff">b</li>
+    </ul>
+
+        <script>
+
+        let ele = document.querySelector('.f')
 
 
         ele.addEventListener("click", function c(e){
 
 
-            if(e.target.matches('2')){
+            if(e.target.matches('.ff')){
                 e.target.textContent = 'clicked'
             }
-            if(e.target.matches('3')){
+            if(e.target.matches('.fff')){
                 e.target.textContent = 'clicked'
             }
             
         })
 
     </script>
-    
-
-    <ul class="1">
-        <li class="2">a</li>
-        <li class="3">b</li>
-    </ul>
 </body>
 </html>
