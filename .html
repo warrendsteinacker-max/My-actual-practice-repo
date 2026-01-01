@@ -7,8 +7,11 @@
 </head>
 <body>
     <script>
-        function c(){
-            
+        function c(e){
+            if(e.target.id == 1){
+                e.trget.textContent = 'h'
+            }
+            return document.removeEventListener('onClick')
         }
     </script>
 </body>
