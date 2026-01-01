@@ -8,16 +8,16 @@
 <body>
     <script>
 
-        let ele = document.getElementsByClassName('.1')
+        let ele = document.getElementsByClassName('1')
 
 
         ele.addEventListener("click", function c(e){
 
 
-            if(e.target.matches('.2')){
+            if(e.target.matches('2')){
                 e.target.textContent = 'clicked'
             }
-            if(e.target.matches('.3')){
+            if(e.target.matches('3')){
                 e.target.textContent = 'clicked'
             }
             
@@ -26,10 +26,9 @@
     </script>
     
 
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
+    <ul class="1">
+        <li class="2">a</li>
+        <li class="3">b</li>
     </ul>
 </body>
 </html>
