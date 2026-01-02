@@ -1,61 +1,39 @@
-////for my project, I am makeing a cod zombies map tranzit
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-////not sure how three.js works but if I were to create controls myself for player, I would use a switch stament that has the event passed down to it and useing key word key
+// Scene Setup
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 
-let moveForward = false;
-let moveBackward = false;
-let moveLeft = false;
-let moveRight = false;
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-const onKeyDown = function (event) {
-    switch (event.key) {
-        case 'w':
-            moveForward = true;
-            break;
-        case 'a':
-            moveLeft = true;
-            break;
-        case 's':
-            moveBackward = true;
-            break;
-        case 'd':
-            moveRight = true;
-            break;
-    }
-};
+// Load Earth Textures (Make sure these are in your /public folder!)
+const loader = new THREE.TextureLoader();
+const earthGroup = new THREE.Group();
+scene.add(earthGroup);
 
-const onKeyUp = function (event) {
-    switch (event.key) {
-        case 'w':
-            moveForward = false;
-            break;
-        case 'a':
-            moveLeft = false;
-            break;
-        case 's':
-            moveBackward = false;
-            break;
-        case 'd':
-            moveRight = false;
-            break;
-    }
-};
+const geo = new THREE.IcosahedronGeometry(1, 12);
+const mat = new THREE.MeshStandardMaterial({
+  map: loader.load('/textures/00_earthmap1k.jpg'),
+});
+const earthMesh = new THREE.Mesh(geo, mat);
+earthGroup.add(earthMesh);
 
-window.addEventListener('keydown', onKeyDown);
-window.addEventListener('keyup', onKeyUp);
+// Lights
+const sunLight = new THREE.DirectionalLight(0xffffff, 1.5);
+sunLight.position.set(-2, 0.5, 1.5);
+scene.add(sunLight);
 
-// In your animation loop, you can then apply these movements:
+camera.position.z = 3;
+
+// Animation Loop
 function animate() {
-    requestAnimationFrame(animate);
-
-    if (moveForward) player.position.z -= 1;
-    if (moveBackward) player.position.z += 1;
-    if (moveLeft) player.position.x -= 1;
-    if (moveRight) player.position.x += 1;
-
-    renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+  earthMesh.rotation.y += 0.002;
+  renderer.render(scene, camera);
 }
-
 animate();
 
 
