@@ -1,74 +1,70 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-
-// 1. SCENE SETUP
-const w = window.innerWidth;
-const h = window.innerHeight;
+// Change the OrbitControls line to this:
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// 1. Scene & Camera Setup
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
-camera.position.z = 3;
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 3.5;
+
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(w, h);
-// Set color space for realistic textures
-renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
-// 2. CONTROLS
+// 2. Interactive Controls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
-controls.dampingFactor = 0.03;
 
-// 3. TEXTURE LOADER
+// 3. Texture Loading (Referencing the /public folder)
 const loader = new THREE.TextureLoader();
 
-// 4. THE EARTH (Base Layer)
-const geometry = new THREE.IcosahedronGeometry(1, 12);
+// 4. Earth Base Layer
+const earthGeo = new THREE.IcosahedronGeometry(1, 12);
 const earthMat = new THREE.MeshStandardMaterial({
   map: loader.load('/textures/00_earthmap1k.jpg'),
 });
-const earthMesh = new THREE.Mesh(geometry, earthMat);
+const earthMesh = new THREE.Mesh(earthGeo, earthMat);
 scene.add(earthMesh);
 
-// 5. NIGHT LIGHTS (Additive Layer)
+// 5. Night Lights Layer (Additive Blending)
 const lightsMat = new THREE.MeshBasicMaterial({
   map: loader.load('/textures/00_earthlights1k.jpg'),
-  blending: THREE.AdditiveBlending, // This makes the lights "shine" through
+  blending: THREE.AdditiveBlending, 
 });
-const lightsMesh = new THREE.Mesh(geometry, lightsMat);
+const lightsMesh = new THREE.Mesh(earthGeo, lightsMat);
 scene.add(lightsMesh);
 
-// 6. CLOUDS (Floating Layer)
+// 6. Cloud Layer (Floating slightly above)
 const cloudMat = new THREE.MeshStandardMaterial({
   map: loader.load('/textures/00_earthclouds1k.jpg'),
   transparent: true,
   opacity: 0.4,
   blending: THREE.AdditiveBlending,
 });
-const cloudsMesh = new THREE.Mesh(geometry, cloudMat);
-cloudsMesh.scale.setScalar(1.003); // Slightly larger so it floats
+const cloudsMesh = new THREE.Mesh(earthGeo, cloudMat);
+cloudsMesh.scale.setScalar(1.005); // Lifts clouds above surface
 scene.add(cloudsMesh);
 
-// 7. LIGHTING (Sunlight)
-const sunLight = new THREE.DirectionalLight(0xffffff, 2.0);
+// 7. Lighting
+const sunLight = new THREE.DirectionalLight(0xffffff, 2);
 sunLight.position.set(-2, 0.5, 1.5);
 scene.add(sunLight);
 
-// 8. ANIMATION LOOP
+// 8. Animation Loop
 function animate() {
   requestAnimationFrame(animate);
   
-  // Rotate each layer at different speeds for realism
+  // Real-time rotation for your automated logs
   earthMesh.rotation.y += 0.001;
   lightsMesh.rotation.y += 0.001;
-  cloudsMesh.rotation.y += 0.0013; 
-  
+  cloudsMesh.rotation.y += 0.0012;
+
   controls.update();
   renderer.render(scene, camera);
 }
-
 animate();
 
-// Handle Window Resize
+// Responsive Resize
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
