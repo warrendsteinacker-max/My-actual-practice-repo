@@ -22,8 +22,10 @@ Array.prototype.mymap = function(fn){
 }
 
 Array.prototype.myfill = function(fn){
-    let arr = [];
-    this.forEach((item) => {if(fn(item)){arr.push(fn(item))}} )
+
+     let arr = [];
+    this.forEach((item) => {if(fn(item)){arr.push(item)}} )
     return arr;
+   
 }
 
