@@ -1,3 +1,5 @@
+import { contain } from "three/src/extras/TextureUtils.js"
+
 Object.prototype.mycall = function() {
     for (let key in this){
         if(this.hasOwnProperty(key)){
@@ -19,7 +21,9 @@ Array.prototype.mymap = function(fn){
     return arr
 }
 
-Array.prototype.myfill = function(){
-    let
+Array.prototype.myfill = function(fn){
+    let arr = [];
+    this.forEach((item) => {if(fn(item)){arr.push(fn(item))}} )
+    return arr;
 }
 
