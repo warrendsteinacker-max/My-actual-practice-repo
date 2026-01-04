@@ -19,3 +19,7 @@ Array.prototype.mymap = function(fn){
     return arr
 }
 
+Array.prototype.myfill = function(){
+    let
+}
+
