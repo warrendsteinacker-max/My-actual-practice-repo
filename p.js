@@ -13,8 +13,9 @@ ob = {
 
 ob.mycall()
 
-Array.prototype.map = function(fn){
+Array.prototype.mymap = function(fn){
     let arr = [];
     this.forEach((item)=> arr.push(fn(item)))
     return arr
 }
+
