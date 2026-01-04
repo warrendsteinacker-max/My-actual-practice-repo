@@ -1,6 +1,8 @@
 Object.prototype.mycall = function() {
     for (let key of this){
-        console.log(this[key])
+        if(this.hasOwnProperty(key)){
+            console.log(this[key])
+        }
     }
 }
 
@@ -9,4 +11,4 @@ ob = {
     2: "b",
 }
 
-console.log(ob.mycall)
+ob.mycall()
