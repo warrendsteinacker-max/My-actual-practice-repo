@@ -1,5 +1,5 @@
 Object.prototype.mycall = function() {
-    for (let key of this){
+    for (let key in this){
         if(this.hasOwnProperty(key)){
             console.log(this[key])
         }
@@ -12,3 +12,9 @@ ob = {
 }
 
 ob.mycall()
+
+Array.prototype.map = function(fn){
+    let arr = [];
+    this.forEach((item)=> arr.push(fn(item)))
+    return arr
+}
