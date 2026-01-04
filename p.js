@@ -1,0 +1,5 @@
+Object.prototype.mycall = function() {
+
+    
+
+}
