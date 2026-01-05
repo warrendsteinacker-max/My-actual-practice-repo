@@ -68,7 +68,7 @@ Array.prototype.Mmyr = function(initv, fn){
 const myflat = (arr, d = 1) => {
     let ar = [];
     
-    arr.forEach((item)=>{if(Array.isArray(ar) && d>0){ar.push(myflat(...item, d-1))}
+    arr.forEach((item)=>{if(Array.isArray(item) && d>0){ar.push(...myflat(item, d-1))}
     else{ar.push(item)}
     });
 
