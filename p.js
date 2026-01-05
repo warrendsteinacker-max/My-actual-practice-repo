@@ -149,7 +149,7 @@ const memo = (fn, context) => {
 
 
 
-const CC = (fn) => {
+const CC = (fn, context) => {
 
     return function Cc(...args){
 
@@ -168,6 +168,19 @@ const CC = (fn) => {
     }
 
 
+}
+
+const mem = (fn, context) => {
+let ca = {};
+return function(...args){
+    caa = JSON.stringify(args)
+    if(!ca[caa]){
+        ca[caa] = fn.call(this || context, ...args)
+    } 
+    else{
+        return ca[caa]
+    }
+}
 }
 
 
