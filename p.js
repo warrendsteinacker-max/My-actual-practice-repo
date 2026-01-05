@@ -196,3 +196,14 @@ Function.prototype.myB = function(context = {}, ...args) {
         return context.fn.call(context, ...args, ...next)
     }
 }
+
+
+Function.prototype.myB = function(context = {}, ...args){
+    if(typeof this !== "function"){
+        throw new Error("w")
+    }
+    context.fn = this
+    return function(...next){
+        return context.fn.call(context, ...args, ...next)
+    }
+}
