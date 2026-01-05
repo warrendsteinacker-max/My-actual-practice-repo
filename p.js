@@ -79,14 +79,14 @@ const debounce = (fn, d) => {
 
 let timer;
 
-return function() {
+return function(...args) {
 
-it(timer){
+if(timer){
 
     clearTimeout(timer)
 } 
 
-let timer = setTimeout(() => {fn(...arguments)}, d)
+timer = setTimeout(() => {fn.apply(this, args)}, d)
 
 }
 
