@@ -185,3 +185,14 @@ return function(...args){
 
 
 ////
+
+Function.prototype.myB = function(context = {}, ...args) {
+    if(typeof this !== "function"){
+        throw new Error("not func")
+    }
+
+    context.fn = this 
+    return function (...next){
+        return context.fn(context, ...args, ...next)
+    }
+}
