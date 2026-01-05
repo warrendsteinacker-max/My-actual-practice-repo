@@ -29,8 +29,25 @@ ob.mycall()
    
 //}
 
-Array.prototype.myreduce = function(){
+Array.prototype.myreduce = function(initv, fn){
 
-    arr
+    const sindex = initv !== initv ? 1:this[0]
+    const acc = initv !== undefined ? initv:1
 
+    for (let i = sindex; i<this.length; i++ ){
+        const acc = fn(acc, this[i], i, this)
+    }
+    return acc
+}
+
+Array.prototype.myR = function(initv, fn){
+
+    const startindex = initv !== undefined ? initv:this[0]
+    const acc = initv !== undefined ? initv:0
+
+    for(let i = startindex; i < this.length; i++){
+        const acc = fn(acc, this[i], i, this) 
+    }
+
+    return acc
 }
