@@ -74,3 +74,20 @@ const myflat = (arr, d = 1) => {
 
     return ar;
 }
+
+const debounce = (fn, d) => {
+
+let timer;
+
+return function() {
+
+it(timer){
+
+    clearTimeout(timer)
+} 
+
+let timer = setTimeout(() => {fn(...arguments)}, d)
+
+}
+
+}
