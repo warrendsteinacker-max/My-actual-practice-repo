@@ -1,220 +1,222 @@
 
 
-Object.prototype.mycall = function() {
-    for (let key in this){
-        if(this.hasOwnProperty(key)){
-            console.log(this[key])
-        }
-    }
-}
+// Object.prototype.mycall = function() {
+//     for (let key in this){
+//         if(this.hasOwnProperty(key)){
+//             console.log(this[key])
+//         }
+//     }
+// }
 
-ob = {
-    1: "a",
-    2: "b",
-}
+// ob = {
+//     1: "a",
+//     2: "b",
+// }
 
-ob.mycall()
+// ob.mycall()
 
-//Array.prototype.mymap = function(fn){
-  //  let arr = [];
-    //this.forEach((item)=> arr.push(fn(item)))
-    //return arr
-//}
+// //Array.prototype.mymap = function(fn){
+//   //  let arr = [];
+//     //this.forEach((item)=> arr.push(fn(item)))
+//     //return arr
+// //}
 
-//Array.prototype.myfill = function(fn){
+// //Array.prototype.myfill = function(fn){
 
-  //   let arr = [];
-    //this.forEach((item) => {if(fn(item)){arr.push(item)}} )
-    //return arr;
+//   //   let arr = [];
+//     //this.forEach((item) => {if(fn(item)){arr.push(item)}} )
+//     //return arr;
    
-//}
+// //}
 
-Array.prototype.myreduce = function(initv, fn){
+// Array.prototype.myreduce = function(initv, fn){
 
-    const sindex = initv !== initv ? 1:this[0]
-    const acc = initv !== undefined ? initv:1
+//     const sindex = initv !== initv ? 1:this[0]
+//     const acc = initv !== undefined ? initv:1
 
-    for (let i = sindex; i<this.length; i++ ){
-        const acc = fn(acc, this[i], i, this)
-    }
-    return acc
-}
+//     for (let i = sindex; i<this.length; i++ ){
+//         const acc = fn(acc, this[i], i, this)
+//     }
+//     return acc
+// }
 
-Array.prototype.myR = function(initv, fn){
+// Array.prototype.myR = function(initv, fn){
 
-    let startindex = initv !== undefined ? 0:1
-    let acc = initv !== undefined ? initv:this[0]
+//     let startindex = initv !== undefined ? 0:1
+//     let acc = initv !== undefined ? initv:this[0]
 
-    for(let i = startindex; i < this.length; i++){
-        const acc = fn(acc, this[i], i, this) 
-    }
+//     for(let i = startindex; i < this.length; i++){
+//         const acc = fn(acc, this[i], i, this) 
+//     }
 
-    return acc
-}
+//     return acc
+// }
 
-Array.prototype.Mmyr = function(initv, fn){
+// Array.prototype.Mmyr = function(initv, fn){
 
-    let startI = initv !== undefined ? 0:1
-    let acc = initv !== undefined ? initv:this[0]
+//     let startI = initv !== undefined ? 0:1
+//     let acc = initv !== undefined ? initv:this[0]
     
-    for(let i = startI; i < this.length; i++){
-        acc = fn(acc, this[i])
-    }
+//     for(let i = startI; i < this.length; i++){
+//         acc = fn(acc, this[i])
+//     }
 
-    return acc
+//     return acc
 
-}
+// }
 
-const myflat = (arr, d = 1) => {
-    let ar = [];
+// const myflat = (arr, d = 1) => {
+//     let ar = [];
     
-    arr.forEach((item)=>{if(Array.isArray(item) && d>0){ar.push(...myflat(item, d-1))}
-    else{ar.push(item)}
-    });
+//     arr.forEach((item)=>{if(Array.isArray(item) && d>0){ar.push(...myflat(item, d-1))}
+//     else{ar.push(item)}
+//     });
 
-    return ar;
-}
+//     return ar;
+// }
 
-const debounce = (fn, d) => {
+// const debounce = (fn, d) => {
 
-let timer;
+// let timer;
 
-return function(...args) {
+// return function(...args) {
 
-if(timer){
+// if(timer){
 
-    clearTimeout(timer)
-} 
+//     clearTimeout(timer)
+// } 
 
-timer = setTimeout(() => {fn.apply(this, args)}, d)
+// timer = setTimeout(() => {fn.apply(this, args)}, d)
 
-}
+// }
 
-}
+// }
 
-const throt = (fn, d) => {
+// const throt = (fn, d) => {
 
-let timer;
+// let timer;
 
-return function(...args){
-    if(timer){return null}
-    timer = true
+// return function(...args){
+//     if(timer){return null}
+//     timer = true
 
-    setTimeout(()=> {fn.apply(this, args); timer = false }, d)
-}
+//     setTimeout(()=> {fn.apply(this, args); timer = false }, d)
+// }
 
-}
+// }
 
-///
+// ///
 
-const once = (fn, context) => {
+// const once = (fn, context) => {
 
-    let ran;
+//     let ran;
 
-    return function(...args){
+//     return function(...args){
       
 
-      if(fn){
-        ran = fn.apply(this || context, args)
-        fn = null
+//       if(fn){
+//         ran = fn.apply(this || context, args)
+//         fn = null
 
-      }
-      return ran
-    }
+//       }
+//       return ran
+//     }
     
-}
+// }
 
 
-const memo = (fn, context) => {
+// const memo = (fn, context) => {
 
-    let cach = {};
+//     let cach = {};
 
-    return function(...args){
+//     return function(...args){
 
-       let cachc = JSON.stringify(args)
-       if(!cach[cachc]){
+//        let cachc = JSON.stringify(args)
+//        if(!cach[cachc]){
 
-       return cach[cachc] = fn.call(this || context, ...args)
+//        return cach[cachc] = fn.call(this || context, ...args)
 
-       } 
-       else{
-        return cach[cachc]
-       }
+//        } 
+//        else{
+//         return cach[cachc]
+//        }
 
-    }
-}
-
-
-
+//     }
+// }
 
 
 
-const CC = (fn, context) => {
-
-    return function Cc(...args){
-
-        if(args.length >= fn.length){
-
-            return fn(...args)
-        }else{
-
-            return function(...next){
-                return Cc(...args, ...next)
-            }
-        }
 
 
 
-    }
+// const CC = (fn, context) => {
+
+//     return function Cc(...args){
+
+//         if(args.length >= fn.length){
+
+//             return fn(...args)
+//         }else{
+
+//             return function(...next){
+//                 return Cc(...args, ...next)
+//             }
+//         }
 
 
-}
 
-const mem = (fn, context) => {
-let ca = {};
-return function(...args){
-    let caa = JSON.stringify(args)
-    if(!ca[caa]){
-       return ca[caa] = fn.call(this || context, ...args)
-    } 
-    else{
-        return ca[caa]
-    }
-}
-}
+//     }
 
 
-////
+// }
 
-Function.prototype.myB = function(context = {}, ...args) {
-    if(typeof this !== "function"){
-        throw new Error("not func")
-    }
+// const mem = (fn, context) => {
+// let ca = {};
+// return function(...args){
+//     let caa = JSON.stringify(args)
+//     if(!ca[caa]){
+//        return ca[caa] = fn.call(this || context, ...args)
+//     } 
+//     else{
+//         return ca[caa]
+//     }
+// }
+// }
 
-    context.fn = this 
-    return function (...next){
-        return context.fn.call(context, ...args, ...next)
-    }
-}
+
+// ////
+
+// Function.prototype.myB = function(context = {}, ...args) {
+//     if(typeof this !== "function"){
+//         throw new Error("not func")
+//     }
+
+//     context.fn = this 
+//     return function (...next){
+//         return context.fn.call(context, ...args, ...next)
+//     }
+// }
 
 
-Function.prototype.myB = function(context = {}, ...args){
-    if(typeof this !== "function"){
-        throw new Error("w")
-    }
-    context.fn = this
-    return function(...next){
-        return context.fn.call(context, ...args, ...next)
-    }
-}
+// Function.prototype.myB = function(context = {}, ...args){
+//     if(typeof this !== "function"){
+//         throw new Error("w")
+//     }
+//     context.fn = this
+//     return function(...next){
+//         return context.fn.call(context, ...args, ...next)
+//     }
+// }
 
-Function.prototype.myC = function(context = {}, ...args){
+// Function.prototype.myC = function(context = {}, ...args){
 
-    if(typeof this !== "function"){
-        throw new Error("q")
-    }
+//     if(typeof this !== "function"){
+//         throw new Error("q")
+//     }
 
-    context.fn = this 
-    return context.fn(...args) 
+//     context.fn = this 
+//     return context.fn(...args) 
 
-}
+// }
+
+console.log("h")
