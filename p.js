@@ -134,7 +134,7 @@ const memo = (fn, context) => {
        let cachc = JSON.stringify(args)
        if(!cach[cachc]){
 
-       cach[cachc] = fn.call(this || context, ...args)
+       return cach[cachc] = fn.call(this || context, ...args)
 
        } 
        else{
@@ -173,9 +173,9 @@ const CC = (fn, context) => {
 const mem = (fn, context) => {
 let ca = {};
 return function(...args){
-    caa = JSON.stringify(args)
+    let caa = JSON.stringify(args)
     if(!ca[caa]){
-        ca[caa] = fn.call(this || context, ...args)
+       return ca[caa] = fn.call(this || context, ...args)
     } 
     else{
         return ca[caa]
