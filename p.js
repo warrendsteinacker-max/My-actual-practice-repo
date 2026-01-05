@@ -191,8 +191,8 @@ Function.prototype.myB = function(context = {}, ...args) {
         throw new Error("not func")
     }
 
-    context.fn = this 
+    contextfn = this 
     return function (...next){
-        return context.fn(context, ...args, ...next)
+        return contextfn.call(context, ...args, ...next)
     }
 }
