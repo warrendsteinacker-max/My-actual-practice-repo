@@ -220,5 +220,9 @@
 // }
 
 Function.prototype.myA = function(context={}, args = []){
-    
+    if(typeof this !== "function"){
+        throw new Error("w")
+    }
+    context.fn = this 
+    return context.fn(args)
 }
