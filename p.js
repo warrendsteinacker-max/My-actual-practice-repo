@@ -91,3 +91,11 @@ timer = setTimeout(() => {fn.apply(this, args)}, d)
 }
 
 }
+
+const throt = (fn, d) => {
+
+let timer;
+
+
+
+}
