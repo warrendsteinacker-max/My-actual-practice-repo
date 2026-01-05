@@ -143,3 +143,20 @@ const memo = (fn, context) => {
 
     }
 }
+
+
+
+
+
+
+const CC = (fn) => {
+
+    return function(...args){
+
+
+
+
+    }
+
+
+}
