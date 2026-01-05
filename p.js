@@ -43,7 +43,7 @@ Array.prototype.myreduce = function(initv, fn){
 Array.prototype.myR = function(initv, fn){
 
     const startindex = initv !== undefined ? initv:this[0]
-    const acc = initv !== undefined ? initv:0
+    const acc = initv !== undefined ? initv:this[0]
 
     for(let i = startindex; i < this.length; i++){
         const acc = fn(acc, this[i], i, this) 
