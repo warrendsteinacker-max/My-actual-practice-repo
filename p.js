@@ -96,6 +96,11 @@ const throt = (fn, d) => {
 
 let timer;
 
+return function(...args){
+    if(timer){return null}
+    timer = true
 
+    setTimeout(()=> {fn.apply(this, args); timer = false }, d)
+}
 
 }
