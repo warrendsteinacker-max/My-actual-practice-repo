@@ -106,3 +106,17 @@ return function(...args){
 }
 
 ///
+
+const once = (fn, context) => {
+    return function(){
+      let ran;
+
+      if(fn){
+        ran = fn.apply(this || context, args)
+        fn = null
+
+      }
+      return ran
+    }
+    
+}
