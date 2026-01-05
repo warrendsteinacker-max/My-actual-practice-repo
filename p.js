@@ -108,8 +108,11 @@ return function(...args){
 ///
 
 const once = (fn, context) => {
-    return function(){
-      let ran;
+
+    let ran;
+
+    return function(...args){
+      
 
       if(fn){
         ran = fn.apply(this || context, args)
@@ -119,4 +122,24 @@ const once = (fn, context) => {
       return ran
     }
     
+}
+
+
+const memo = (fn, context) => {
+
+    let cach = {};
+
+    return function(...args){
+
+       let cachc = JSON.stringify(args)
+       if(!cach[cachc]){
+
+       cach[cachc] = fn.call(this || context, ...args)
+
+       } 
+       else{
+        return cach[cachc]
+       }
+
+    }
 }
