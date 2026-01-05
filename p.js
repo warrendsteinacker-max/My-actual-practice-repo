@@ -219,4 +219,6 @@
 
 // }
 
-console.log("h")
+Function.prototype.myA = function(context={}, args = []){
+    
+}
