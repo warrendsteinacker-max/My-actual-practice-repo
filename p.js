@@ -151,8 +151,17 @@ const memo = (fn, context) => {
 
 const CC = (fn) => {
 
-    return function(...args){
+    return function Cc(...args){
 
+        if(args.length >= fn.length){
+
+            return fn(...args)
+        }else{
+
+            return function(...next){
+                return Cc(...args, ...next)
+            }
+        }
 
 
 
