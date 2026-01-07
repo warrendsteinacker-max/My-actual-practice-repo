@@ -2,25 +2,413 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bootstrap Practice</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Literacy Development Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2em;
+            margin-bottom: 50px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: white;
+            top: 0;
+        }
+        
+        .stage {
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .stage-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 45%;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .stage-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .stage:nth-child(odd) .stage-content {
+            margin-left: 0;
+            margin-right: auto;
+        }
+        
+        .stage:nth-child(even) .stage-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+        
+        .stage-marker {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 20px);
+            width: 30px;
+            height: 30px;
+            background: white;
+            border: 4px solid #667eea;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .stage-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f0f0f0;
+        }
+        
+        .stage-title {
+            font-size: 1.8em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .grade-range {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        
+        .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .milestones {
+            margin: 20px 0;
+        }
+        
+        .milestone-category {
+            margin-bottom: 20px;
+        }
+        
+        .category-title {
+            font-weight: bold;
+            color: #764ba2;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-icon {
+            margin-right: 8px;
+        }
+        
+        .milestone-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .milestone-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .milestone-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .behaviors {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .behaviors-title {
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .example-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 968px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .stage-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .stage-marker {
+                left: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <header style="background-color:rgb(0, 247, 255); "><nav><a>a</a></nav></header>
-
-    <main>
     <div class="container">
-        <div type="row">hhhhh</div>
-    </div>
-    </main>
-
-    <footer></footer>
-
-    <div class="container"></div>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        <h1>📚 Early Literacy Development Timeline</h1>
+        <p class="subtitle">A Journey from Emergent to Fluent Reading (PreK - Grade 3)</p>
+        
+        <div class="timeline">
+            <!-- Stage 1: Emergent Reader -->
+            <div class="stage">
+                <div class="stage-marker"></div>
+                <div class="stage-content">
+                    <div class="icon">🌱</div>
+                    <div class="stage-header">
+                        <div class="stage-title">Emergent Reader</div>
+                        <div class="grade-range">PreK - K</div>
+                    </div>
+                    
+                    <div class="milestones">
+                        <div class="milestone-category">
+                            <div class="category-title">
+                                <span class="category-icon">📖</span> Reading Milestones
+                            </div>
+                            <ul class="milestone-list">
+                                <li>"Notice environmental print" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Distinguish between pictures and print in books" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Use picture cues and predictable patterns in books to retell the story" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Identify the letters of the alphabet" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Recognize 5-20 familiar or high-frequency words" (Tompkins et al., 2021, p. 43).</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="milestone-category">
+                            <div class="category-title">
+                                <span class="category-icon">✍️</span> Writing Milestones
+                            </div>
+                            <ul class="milestone-list">
+                                <li>"Distinguish between writing and drawing" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Write letters and letterlike forms or scribble randomly on the page" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Develop an understanding of directionality" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Show interest in writing" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Use sentence frames to write a sentence" (Tompkins et al., 2021, p. 43).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="behaviors">
+                        <div class="behaviors-title">👶 Typical Behaviors:</div>
+                        <p>Students "show an interest in reading and writing" (Tompkins et al., 2021, p. 43), "acquire concepts about print" (Tompkins et al., 2021, p. 43), and "develop book-handling skills" (Tompkins et al., 2021, p. 43). They engage in pretend reading and develop an understanding that written words carry meaning.</p>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="example-title">📝 Student Example: Caroline</div>
+                        <p>Caroline, a 5-year-old emergent reader, is "learning to speak English as she learns to read and write" (Tompkins et al., 2021, p. 44) while her family "speaks Hmong at home" (Tompkins et al., 2021, p. 44). She demonstrates that she understands "her speech can be written down" (Tompkins et al., 2021, p. 44) and enjoys dictating "stories for the teacher to record" (Tompkins et al., 2021, p. 44).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stage 2: Beginning Reader -->
+            <div class="stage">
+                <div class="stage-marker"></div>
+                <div class="stage-content">
+                    <div class="icon">🌿</div>
+                    <div class="stage-header">
+                        <div class="stage-title">Beginning Reader</div>
+                        <div class="grade-range">K - Grade 1</div>
+                    </div>
+                    
+                    <div class="milestones">
+                        <div class="milestone-category">
+                            <div class="category-title">
+                                <span class="category-icon">📖</span> Reading Milestones
+                            </div>
+                            <ul class="milestone-list">
+                                <li>"Identify letter names and sounds" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Know the short vowel sounds" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Apply knowledge of the cueing systems" (Tompkins et al., 2021, p. 43) to decode words.</li>
+                                <li>"Recognize 20-30 high-frequency words" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Read word by word" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Guide to words when reading" (Tompkins et al., 2021, p. 43).</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="milestone-category">
+                            <div class="category-title">
+                                <span class="category-icon">✍️</span> Writing Milestones
+                            </div>
+                            <ul class="milestone-list">
+                                <li>"Write from left to right" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Print the upper- and lowercase letters" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Use phonetic (invented) spelling" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Spell many words phonetically" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Spell 20-50 high-frequency words correctly" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Use capital letters to begin sentences" (Tompkins et al., 2021, p. 43).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="behaviors">
+                        <div class="behaviors-title">👧 Typical Behaviors:</div>
+                        <p>Students begin actively decoding words and matching spoken words to text. They "use sentence frames to write a sentence" (Tompkins et al., 2021, p. 43) and "use periods, question marks, and other punctuation marks to mark the end" (Tompkins et al., 2021, p. 43). Beginning readers use pictures and emerging decoding strategies to make sense of text.</p>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="example-title">📝 Student Example: Caroline</div>
+                        <p>Caroline demonstrates beginning reading skills as she has "shown remarkable growth in 5 months" (Tompkins et al., 2021, p. 44) by reading books and working to decode words. She "uses the names of the letters and the sounds that the letters represent" (Tompkins et al., 2021, p. 44) and has "developed good book-handling skills" (Tompkins et al., 2021, p. 44). In writing, she has learned to "write her own name, copy classmate names, and label the items she has posted in the classroom" (Tompkins et al., 2021, p. 44).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stage 3: Transitional Reader -->
+            <div class="stage">
+                <div class="stage-marker"></div>
+                <div class="stage-content">
+                    <div class="icon">🌳</div>
+                    <div class="stage-header">
+                        <div class="stage-title">Transitional Reader</div>
+                        <div class="grade-range">Grades 1 - 2</div>
+                    </div>
+                    
+                    <div class="milestones">
+                        <div class="milestone-category">
+                            <div class="category-title">
+                                <span class="category-icon">📖</span> Reading Milestones
+                            </div>
+                            <ul class="milestone-list">
+                                <li>"Identify unfamiliar words" (Tompkins et al., 2021, p. 43) using decoding strategies.</li>
+                                <li>Read with increasing fluency (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Recognize 100-300 high-frequency words" (Tompkins et al., 2021, p. 43).</li>
+                                <li>Use context clues to identify words (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Self-correct" (Tompkins et al., 2021, p. 43) reading errors.</li>
+                                <li>"Make reading-writing connections" (Tompkins et al., 2021, p. 43).</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="milestone-category">
+                            <div class="category-title">
+                                <span class="category-icon">✍️</span> Writing Milestones
+                            </div>
+                            <ul class="milestone-list">
+                                <li>"Use the writing process" (Tompkins et al., 2021, p. 43) to write drafts and final copies.</li>
+                                <li>"Write compositions with more than one paragraph" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Indent paragraphs" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Use sophisticated and technical vocabulary" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Spell most high-frequency words correctly" (Tompkins et al., 2021, p. 43).</li>
+                                <li>"Apply capitalization rules" (Tompkins et al., 2021, p. 43).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="behaviors">
+                        <div class="behaviors-title">🧒 Typical Behaviors:</div>
+                        <p>"Students usually read aloud slowly, word by word, stopping often to sound out unfamiliar words" (Tompkins et al., 2021, p. 46), but "by the end of the beginning stage, their reading becomes smoother and more fluent" (Tompkins et al., 2021, p. 46). They learn that "reading involves comprehension" (Tompkins et al., 2021, p. 46) and begin to "personalize the reading experience" (Tompkins et al., 2021, p. 46).</p>
+                    </div>
+                    
+                    <div class="example-box">
+                        <div class="example-title">📝 Student Behaviors:</div>
+                        <p>Students at this stage "monitor their reading to recognize when it doesn't make sense; cross-check using phonological, semantic, syntactic, and pragmatic information in the text to figure out the problem; and repair or self-correct it" (Tompkins et al., 2021, p. 46). They develop more sophisticated strategies and begin reading with greater understanding.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stage 4: Fluent Reader -->
+            <div class="stage">
+                <div class="stage-marker"></div>
+                <div class="stage-content">
+                    <div class="icon">🌟</div>
+                    <div class="stage-header">
+                        <div class="stage-title">Fluent Reader</div>
+                        <div class="grade-range">Grades 2 - 3+</div>
+                    </div>
+                    
+                    <div class="milestones">
+                        <div class="milestone-category">
+                            <div class="category-title">
+                                <span class="category-icon">📖</span> Reading Milestones
+                            </div>
+                            <ul class="milestone-list">
+                                <li>"Read fluently and with expression" (Tompkins et al., 2021, p. 49).</li>
+                                <li>"Recognize most one-syllable words automatically and decode other words efficiently" (Tompkins et al., 2021, p. 49).</li>
+                                <li>"Use decoding and comprehension strategies effectively" (Tompkins et al., 2021, p. 49).</li>
+                                <li>"Read and comprehend stories, informational books, and poetry" (Tompkins et al., 2021, p. 49).</li>
+                                <li>"Use knowledge of text structure and genre to support comprehension" (Tompkins et al., 2021, p. 49).</li>
+                                <li>"Applies knowledge of story structure and genre" (Tompkins et al., 2021, p. 50).</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="milestone-category">
+                            <div class="category-title">
+                                <span class="category-icon">✍️</span> Writing Milestones
+                            </div>
+                            <ul class="milestone-list">
+                                <li>"Uses the writing process" (Tompkins et al., 2021, p. 50).</li>
+                                <li>"Has a sense of audience and purpose" (Tompkins et al., 2021, p. 50).</li>
+                                <li>"Writes a complete story with a beginning, middle, and end" (Tompkins et al., 2021, p. 50).</li>
+                                <li>"Writes in paragraphs" (Tompkins et al., 2021, p. 50).</li>
+                                <li>"Uses sophisticated language" (Tompkins et al., 2021, p. 50).</li>
+                                <li>"Spells most words correctly" (Tompkins et al., 2021, p. 50) and "uses capital letters and punctuation to mark sentence boundaries" (Tompkins et al., 2021, p. 50).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="behav
