@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="justify-content: center; align-items: center">
+<body style="justify-content: center; align-items: center; min-height: 100vh; display: flex; margin: 0">
     <button id="but">Click Me</button>
 
     <script>
         document.getElementById("but").addEventListener("click", () => { const el = document.createElement("div")
         el.textContent = "w"
-        document.body.appendChild(el)})
+        const ell = document.getElementById("divid") 
+        ell.appendChild(el)})
  
 
     </script>
