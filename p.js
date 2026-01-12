@@ -17,3 +17,13 @@ const register = async(req, res) => {
         res.status(500).json({S: false, error: error.message})
     }
 }
+
+const login = async(req, res, next) => {
+    const {pass, email} = req.body
+
+    const isuser = User.findOne({email})
+
+    if(!isuser){
+        res.status()
+    }
+}
