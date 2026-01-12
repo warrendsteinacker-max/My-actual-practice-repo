@@ -24,7 +24,7 @@ const login = async(req, res, next) => {
     const isuser = await User.findOne({email});
 
     if(!isuser){
-        res.status(400).json({S: false})
+        return res.status(400).json({S: false})
     }
 
     const isuserP = await bycrpt.compare(pass, isuser.pass)
