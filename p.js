@@ -33,5 +33,5 @@ const login = async(req, res, next) => {
         return res.status(400).json({S: false})
     }
 
-    jwt.assign(token)
+    jwt.sign(isuser, process.env.V, expiresIn: '7d')
 }
