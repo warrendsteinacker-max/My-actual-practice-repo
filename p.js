@@ -34,5 +34,7 @@ const login = async(req, res, next) => {
     }
 
     const atoken = jwt.sign({id: isuser._id}, process.env.V, {expiresIn: '7d'})
-    
+    const rtoken = jwt.sign({id: isuser._id}, process.env.v, {expiresIn: '20d'})
+
+    next()
 }
