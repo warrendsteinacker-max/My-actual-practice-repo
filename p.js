@@ -33,5 +33,5 @@ const login = async(req, res, next) => {
         return res.status(400).json({S: false})
     }
 
-    jwt.sign(isuser, process.env.V, expiresIn: '7d')
+    jwt.sign({id: isuser._id}, process.env.V, {expiresIn: '7d'})
 }
