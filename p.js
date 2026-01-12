@@ -30,6 +30,8 @@ const login = async(req, res, next) => {
     const isuserP = await bycrpt.compare(pass, isuser.pass)
 
     if(!isuserP){
-        return res.status
+        return res.status(400).json({S: false})
     }
+
+    jwt.assign(token)
 }
