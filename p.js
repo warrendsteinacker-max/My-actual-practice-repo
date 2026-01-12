@@ -14,6 +14,6 @@ const register = async(req, res) => {
         }
     }
     catch(error){
-        console.error(error.messege)
+        res.status(500).json({S: false, error: error.message})
     }
 }
