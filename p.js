@@ -13,5 +13,6 @@ const register = async(req, res) => {
         return res.status(400).json({succes: false})   
     }
 
-    
+    const user = new User({email, password})
+    const newuser = awiat create(user) 
 }
