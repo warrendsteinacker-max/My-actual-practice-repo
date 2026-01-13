@@ -90,5 +90,30 @@ const log = async (req, res) => {
     }
 }
 
+const reg = async(req, res) => {
+    
+    try{
+        const {pass, username} = req.body
+
+        const ismatchuser = await Users.findOne({username})
+
+        if(ismatchuser){
+           return res.status(400).json({S: false})
+        }
+
+        if(ismatchuser._pass === pass){
+            return res.status(400).json({S: false});
+        } 
+
+        const token = jwt.sign({id: ismatchuser._id}, process.env.v, {expiresIn: '7d'})
+
+        res.status(200).json({T: token})
+    }
+    catch(error){
+        console.error(error.message)
+    }
+
+}
+
 
 ////
