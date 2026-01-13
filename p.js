@@ -44,8 +44,19 @@ const login = async(req, res, next) => {
 
 const cheakT = (req, res, next) => {
 
-if(req.header.autherization && req.header.autherization.startWith(Bearer))
+    try{
+        token = req.headers.authorization.split(" ")[1];
 
-    const token = req.header.autherization.split("")[1]
+        const d = jwt.verify(token, process.env.V);
+
+        req.user = d;
+
+        next();
+    }
+    catch(error){
+        console.error(error.message);
+        return res.status(401).json({S: false});
+    }
 
 }
+///
