@@ -101,11 +101,8 @@ const reg = async(req, res) => {
            return res.status(400).json({S: false})
         }
 
-        if(ismatchuser._pass === pass){
-            return res.status(400).json({S: false});
-        } 
-
-        const token = jwt.sign({id: ismatchuser._id}, process.env.v, {expiresIn: '7d'})
+        const nuser = await Users.create({pass, username}) 
+        const token = jwt.sign({id: nuser._id}, process.env.v, {expiresIn: '7d'})
 
         res.status(200).json({T: token})
     }
