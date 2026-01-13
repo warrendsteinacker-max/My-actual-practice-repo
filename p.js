@@ -1,5 +1,14 @@
 const Uuser = async(req, res) => {
     const {email, pass} = req.body
 
-    const Euser = await  
+    
+    if(){
+
+    }
+
+    if(){
+
+    }
+
+    const Euser = await Users.findOneByIdAndUpdate()  
 }
