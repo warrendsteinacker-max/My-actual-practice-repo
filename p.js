@@ -74,12 +74,15 @@ const Tcheak = (req, res, next) => {
 
 const Rcheak = async(req, res, next) => {
     try{
-        if(req.user.role === admin){
+        if(req.user && req.user.role === admin){
             next()
+        }
+        else{
+            return res.status(403).json({permision: false})
         }
     }
     catch(error){
         console.error(error.message)
-        return res.status(400).json({permision: false})
+        return res.status(400).json({error: true})
     }
 }
