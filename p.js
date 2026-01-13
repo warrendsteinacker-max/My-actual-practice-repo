@@ -68,19 +68,24 @@ const cheakT = (req, res, next) => {
 
 
 
-const log = (req, res) {
-    const {user, pass} = req.body
+const log = async (req, res) => {
+    try{
+        const {user, pass} = req.body
 
-    const ismatch = await Users.findOne({user})
-    if(!ismatch){
-        return res.status(400).json({F: false})
+        const ismatch = await Users.findOne({user})
+        if(!ismatch){
+            return res.status(400).json({F: false})
+        }
+        const isuser = await bcrypt.compare(pass, ismatch.pass)    
+        if(!isuser){
+            return res.status(400).json({F: false})
+        }
+
+        const token = jwt.sign({id: ismatch._id}, process.env.v, {expiresIn: '7d'})
+
+        return res.status(200).json({T: token})
     }
-    const isuser = await bcrypt.compare()    
-    if(!isuser){
-        return res.status(400).json({F: false})
+    catch(error){
+        console.error(error.message)
     }
-
-    const token = jwt.sign({id: ismatch._id}, process.env.v, {expiresIn: '7d'})
-
-    res.status(200).json({T: token})
 }
