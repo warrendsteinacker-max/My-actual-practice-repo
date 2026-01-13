@@ -16,7 +16,8 @@ const Uuser = async(req, res) => {
 
 const Duser = async(req, res) => {
     try{
-        const {} = req.body
+        const Du = await Users.findByIdAndDelete(req.user.id)        
+        res.status(200).json({deleted: Du})
     }
     catch(error){
         console.error(error.message)
