@@ -38,5 +38,20 @@ const Nuser = async(req, res) => {
         return res.status(400).json({F: false})
     }
 }
+
+
+const Euser = async(req, res) => {
+    try{
+        const {pass, email} = req.body
+        const salt = await bcrypt.genSalt(10)
+        const npsas = await bcrypt.hash(pass, salt)
+        const EEuser = await Users.findByIdAndUpdate(req.user.id, {pass: npsas, email: email})
+        return res.status(200).json({Updatedto: EEuser})
+    }
+    catch(error){
+        console.error(error.message)
+        return res.status(400).json({notUpdatedto: EEuser})
+    }
+}
 ////
 /// //
