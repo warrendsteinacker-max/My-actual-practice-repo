@@ -3,8 +3,8 @@ const Uuser = async(req, res) => {
 
     try{
         const salt = await bcrypt.genSalt(10)
-        const Hpass = bcrypt.hash(pass, salt)
-        const Euser = await Users.findOneByIdAndUpdate(req.user.id, {p: Hpass}, {e: email})
+        const Hpass = await bcrypt.hash(pass, salt)
+        const Euser = await Users.findByIdAndUpdate(req.user.id, {p: Hpass, e: email})
         res.status(200).json({T: true})
     }
     catch(error){
