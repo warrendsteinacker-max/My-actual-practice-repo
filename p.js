@@ -74,7 +74,7 @@ const Tcheak = (req, res, next) => {
 
 const Rcheak = async(req, res, next) => {
     try{
-        if(req.user && req.user.role === admin){
+        if(req.user && req.user.role === "admin"){
             next()
         }
         else{
