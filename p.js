@@ -70,3 +70,14 @@ const Tcheak = (req, res, next) => {
     }
 }
 
+
+const Rcheak = async(req, res) => {
+    try{
+        if(req.user.role === 'admin'){
+            next()
+        }
+    }
+    catch(error){
+
+    }
+}
