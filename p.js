@@ -27,14 +27,19 @@ const login = async(req, res, next) => {
         return res.status(400).json({S: false})
     }
 
-    const isuserP = await bycrpt.compare(pass, isuser.pass)
+    const isuserP = await bcrypt.compare(pass, isuser.pass)
 
     if(!isuserP){
         return res.status(400).json({S: false})
     }
 
     const atoken = jwt.sign({id: isuser._id}, process.env.V, {expiresIn: '7d'})
-    const rtoken = jwt.sign({id: isuser._id}, process.env.v, {expiresIn: '20d'})
+    const rtoken = jwt.sign({id: isuser._id}, process.env.V, {expiresIn: '20d'})
+
+    return res.status(200).json({at: atoken, rt: rtoken})
 
     next()
 }
+
+
+const
