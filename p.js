@@ -45,7 +45,11 @@ const login = async(req, res, next) => {
 const cheakT = (req, res, next) => {
 
     try{
-        token = req.headers.authorization.split(" ")[1];
+        if(!req.headers.authorization){
+            return res.status(400).json({S: false});
+        }
+
+        const token = req.headers.authorization.split(" ")[1];
 
         const d = jwt.verify(token, process.env.V);
 
@@ -60,3 +64,8 @@ const cheakT = (req, res, next) => {
 
 }
 ///
+
+
+
+
+const
