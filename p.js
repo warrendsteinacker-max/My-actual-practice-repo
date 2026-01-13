@@ -12,5 +12,16 @@ const Uuser = async(req, res) => {
         return res.status(400).json({E: false})       
     }
 }
+
+
+const Duser = async(req, res) => {
+    try{
+        const {} = req.body
+    }
+    catch(error){
+        console.error(error.message)
+        return res.status(400).json({F: false})
+    }
+}
 ////
 ///
