@@ -78,6 +78,7 @@ const Rcheak = async(req, res) => {
         }
     }
     catch(error){
-
+        console.error(error.message)
+        return res.status(400).json({permision: false})
     }
 }
