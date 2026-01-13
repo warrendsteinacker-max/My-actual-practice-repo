@@ -61,7 +61,8 @@ const Tcheak = (req, res, next) => {
     try{
         const token = req.headers.authorization.split(" ")[1] 
         const D = jwt.verify(token, process.env.V)
-         
+        req.user = D
+        next() 
     }
     catch(error){
         console.error(error.message)
