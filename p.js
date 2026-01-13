@@ -115,6 +115,9 @@ const reg = async(req, res) => {
 }
 
 
-const update = async()
+const update = async(req, res) => {
+
+    const {email, id, pass} = req.body
+}
 
 ////
