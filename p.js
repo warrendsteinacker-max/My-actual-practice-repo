@@ -42,4 +42,10 @@ const login = async(req, res, next) => {
 }
 
 
-const
+const cheakT = (req, res, next) => {
+
+if(req.header.autherization && req.header.autherization.startWith(Bearer))
+
+    const token = req.header.autherization.split("")[1]
+
+}
