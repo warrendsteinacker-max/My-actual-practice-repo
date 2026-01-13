@@ -97,10 +97,12 @@ const reg = async(req, res) => {
 
         const ismatchuser = await Users.findOne({username})
 
+
         if(ismatchuser){
            return res.status(400).json({S: false})
         }
 
+        const Hpass = await bcrypt.hash 
         const nuser = await Users.create({pass, username}) 
         const token = jwt.sign({id: nuser._id}, process.env.v, {expiresIn: '7d'})
 
@@ -112,5 +114,7 @@ const reg = async(req, res) => {
 
 }
 
+
+const update = async()
 
 ////
