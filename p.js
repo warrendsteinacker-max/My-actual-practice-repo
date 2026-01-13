@@ -28,7 +28,7 @@ const Duser = async(req, res) => {
 const Nuser = async(req, res) => {
     try{
         const {email, pass} = req.body
-        const salt = await bcrypte.genSalt(10)
+        const salt = await bcrypt.genSalt(10)
         const Hpass = await bcrypt.hash(pass, salt)
         const nuser = await Users.create({email, Hpass})
         return res.status(200).json({NU: nuser})
