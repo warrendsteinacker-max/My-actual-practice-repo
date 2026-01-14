@@ -138,7 +138,8 @@ const login = () => {
 const Lpage = () => {
     const [E, setE] = useState()
     const [P, setP] = useState()
-    const nav = useNavigate()       
+    const nav = useNavigate()
+    const {isauth, setIsauth} = useContext(Datap)       
     const LLfunnc = async(e) => {
         try{
             e.preventDefault()
@@ -148,6 +149,7 @@ const Lpage = () => {
                 localStorage.setItem('userd', JSON.stringify({name: data.name, age: data.age}))
                 localStorage.setItem('token', JSON.stringify({T: data.token}))
                 localStorage.setItem('role', JSON.stringify({R: data.role}))
+                setIsauth(true)
                 navigate('/H')
             }
             }
@@ -168,3 +170,4 @@ const Lpage = () => {
 
 
 ////
+
