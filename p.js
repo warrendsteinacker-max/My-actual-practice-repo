@@ -102,6 +102,9 @@ const prof = () => {
 
 const login = () => {
 
+    const [email, setMail] = useState()
+    const [pass, setPass] = useState()
+
     const Lfunc = () => {
         try
         {
@@ -118,10 +121,9 @@ const login = () => {
     }
 
     return(<>
-    <>
-    <>
-    <>
-    </>
-    </>
-    </></>)
+    <form onSubmit={Lfunc}>
+    <input type={text} value={email} onChange={(e)=>setMail(e.target.value)}></input>
+    <input type={text} value={pass} onChange={(e)=>setPass(e.target.value)}></input>
+    <button type={submit}></button>
+    </form></>)
 }
