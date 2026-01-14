@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { AlwaysStencilFunc } from "three/src/constants.js"
 
 const Uuser = async(req, res) => {
@@ -135,6 +136,13 @@ const login = () => {
 
 const Lpage = () => {
     const LLfunnc = async(req, res) => {
-        const data = await axios.post('/login', {email})
+        const [E, setE] = useState()
+        const [P, setP] = useState()
+        const data = await axios.post('/login', {email, pass})
+        
+        if(res.ok){
+            localStorage.setItem('user', JSON.stringify(res))
+            navigate('/')
+        }
     }    
 }
