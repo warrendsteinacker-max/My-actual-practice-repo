@@ -94,7 +94,7 @@ const prof = () => {
     
     return( <>
             <div>
-                <p1>userd.N</p1>
+                <p>{userd.N}</p>
             </div>
             </> )
 }
