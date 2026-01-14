@@ -150,7 +150,14 @@ const Lpage = () => {
                 localStorage.setItem('token', JSON.stringify({T: data.token}))
                 localStorage.setItem('role', JSON.stringify({R: data.role}))
                 setIsauth(true)
-                nav('/H')
+                const RR = JSON.parse(localStorage.getItem(role))
+                if(RR.R === 'admin'){
+                    nav('/AH')
+                else{
+                    nav('/UH')
+                }
+                }
+                    
             }
             }
             catch(error){
