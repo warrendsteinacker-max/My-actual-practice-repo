@@ -138,23 +138,28 @@ const login = () => {
 const Lpage = () => {
     const [E, setE] = useState()
     const [P, setP] = useState()
-        
+    const nav = useNavigate()       
     const LLfunnc = async(e) => {
-        e.preventDefault()
-        const res = await axios.post('/login', {email, pass})
-        const data = res.data
-        if(data.status === 200){
-            localStorage.setItem('userd', JSON.stringify({name: data.e, age: data.age}))
-            localStorage.setItem('token', JSON.stringify({T: data.token}))
-            localStorage.setItem('role', JSON.stringify({R: data.role}))
-            navigate('/H')
-        }
+        try{
+            e.preventDefault()
+            const res = await axios.post('/login', {email: E, pass: P})
+            const data = res.data
+            if(res.status === 200){
+                localStorage.setItem('userd', JSON.stringify({name: data.name, age: data.age}))
+                localStorage.setItem('token', JSON.stringify({T: data.token}))
+                localStorage.setItem('role', JSON.stringify({R: data.role}))
+                navigate('/H')
+            }
+            }
+            catch(error){
+                console.error(error.message)
+            }
     }    
 
     return(<>
     <form onSubmit={LLfunnc}>
-        <input type="text" onChange={(e)=>setP(e.target.value)}></input>
-        <input type="email" onChange={(e)=>setE(e.target.value)}></input>
+        <input value={P} type="text" onChange={(e)=>setP(e.target.value)}></input>
+        <input value={E} type="email" onChange={(e)=>setE(e.target.value)}></input>
         <button type="submit"></button>
     </form>
         </>)
