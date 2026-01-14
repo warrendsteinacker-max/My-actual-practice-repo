@@ -150,7 +150,7 @@ const Lpage = () => {
                 localStorage.setItem('token', JSON.stringify({T: data.token}))
                 localStorage.setItem('role', JSON.stringify({R: data.role}))
                 setIsauth(true)
-                navigate('/H')
+                nav('/H')
             }
             }
             catch(error){
@@ -169,5 +169,5 @@ const Lpage = () => {
 
 
 
-////
+//////////remeber to leave thes so I can prac makeing whol proj
 
