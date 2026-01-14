@@ -167,18 +167,25 @@ const Lpage = () => {
         </>)
 }
 
-const Proroute = ({Aroles}) => {
-    const role = JSON.parse(localStorage.getItem('role'))
-    const {isauth} = useContext(Datap)    
-    if(!Aroles.includes(role)){
-        <Navigate to="/"/>
+const Proroute = ({ Aroles }) => {
+    const { isauth } = useContext(Datap);
+    
+    // 1. Check authentication first
+    if (!isauth) {
+        return <Navigate to="/" replace />;
     }
-    if(isauth === false){
-        <Navigate to="/"/>
+
+    // 2. Get the role object and extract the string 'R'
+    const roleData = JSON.parse(localStorage.getItem('role'));
+    const userRole = roleData?.R; // Use optional chaining in case it's null
+
+    // 3. Check if the role string exists in the allowed roles array
+    if (Aroles && !Aroles.includes(userRole)) {
+        return <Navigate to="/" replace />;
     }
-    else{
-        return <Outlet/>
-    }
+
+    // 4. If both pass, show the page
+    return <Outlet />;
 }
 
 //////////remeber to leave thes so I can prac makeing whol proj
