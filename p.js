@@ -1,3 +1,4 @@
+import e from "cors"
 import { useState } from "react"
 import { AlwaysStencilFunc } from "three/src/constants.js"
 
@@ -135,14 +136,23 @@ const login = () => {
 
 
 const Lpage = () => {
-    const LLfunnc = async(req, res) => {
+    const LLfunnc = async(e) => {
+        e.preventDefault
         const [E, setE] = useState()
         const [P, setP] = useState()
         const data = await axios.post('/login', {email, pass})
         
         if(res.ok){
             localStorage.setItem('user', JSON.stringify(res))
-            navigate('/')
+            navigate('/H')
         }
     }    
+
+    return(<>
+    <form onSubmit={LLfunnc}>
+        <input type="text" onChange={(e)=>setP(e.target.value)}></input>
+        <input type="email" onChange={(e)=>setE(e.target.value)}></input>
+        <button type="submit"></button>
+    </form>
+        </>)
 }
