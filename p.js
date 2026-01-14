@@ -167,7 +167,7 @@ const Lpage = () => {
         </>)
 }
 
-
+const Proroute = ()
 
 //////////remeber to leave thes so I can prac makeing whol proj
 
