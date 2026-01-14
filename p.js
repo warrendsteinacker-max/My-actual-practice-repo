@@ -143,7 +143,9 @@ const Lpage = () => {
         const data = await axios.post('/login', {email, pass})
         
         if(res.ok){
-            localStorage.setItem('user', JSON.stringify(res))
+            localStorage.setItem('userd', JSON.stringify({name: res.e, age: res.age}))
+            localStorage.setItem('token', JSON.stringify({T: res.token}))
+            localStorage.setItem('role', JSON.stringify({R: res.role}))
             navigate('/H')
         }
     }    
