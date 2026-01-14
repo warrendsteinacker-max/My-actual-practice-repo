@@ -131,3 +131,10 @@ const login = () => {
     <button type="submit">l</button>
     </form></>)
 }
+
+
+const Lpage = () => {
+    const LLfunnc = async(req, res) => {
+        const data = await axios.post('/login', {email})
+    }    
+}
