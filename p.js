@@ -90,5 +90,11 @@ const Rcheak = async(req, res, next) => {
 
 const prof = () => {
 
+    const userd = JSON.parse(localStorage.getItem('user'))
     
+    return( <>
+            <div>
+                <p1>userd.N</p1>
+            </div>
+            </> )
 }
