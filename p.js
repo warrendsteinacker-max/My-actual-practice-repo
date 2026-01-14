@@ -1,3 +1,5 @@
+import { AlwaysStencilFunc } from "three/src/constants.js"
+
 const Uuser = async(req, res) => {
     const {email, pass} = req.body
 
@@ -105,7 +107,7 @@ const login = () => {
     const [email, setMail] = useState()
     const [pass, setPass] = useState()
 
-    const Lfunc = () => {
+    const Lfunc = async() => {
         try
         {
             const userd = axios.post('/log', {email, pass})
