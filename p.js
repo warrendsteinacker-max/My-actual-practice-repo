@@ -103,8 +103,25 @@ const prof = () => {
 const login = () => {
 
     const Lfunc = () => {
+        try
+        {
+            const userd = axios.post('/log', {email, pass})
+            if(userd){
+                nav('/home')
+            }
+        }
+        catch(error){
+            console.error(error.message)
+        }
+
 
     }
 
-    
+    return(<>
+    <>
+    <>
+    <>
+    </>
+    </>
+    </></>)
 }
