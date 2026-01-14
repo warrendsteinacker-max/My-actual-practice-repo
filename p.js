@@ -110,6 +110,7 @@ const login = () => {
         {
             const userd = axios.post('/log', {email, pass})
             if(userd){
+                localStorage.setItem('user', userd)
                 nav('/home')
             }
         }
