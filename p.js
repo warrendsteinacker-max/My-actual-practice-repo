@@ -108,11 +108,12 @@ const login = () => {
     const [pass, setPass] = useState()
 
     const Lfunc = async() => {
+        e.perventDefault()
         try
         {
             const userd = axios.post('/log', {email, pass})
             if(userd){
-                localStorage.setItem('user', userd)
+                localStorage.setItem('user', JSON.stringify(userd))
                 nav('/home')
             }
         }
@@ -125,8 +126,8 @@ const login = () => {
 
     return(<>
     <form onSubmit={Lfunc}>
-    <input type={text} value={email} onChange={(e)=>setMail(e.target.value)}></input>
-    <input type={text} value={pass} onChange={(e)=>setPass(e.target.value)}></input>
+    <input type="text" value={email} onChange={(e)=>setMail(e.target.value)}></input>
+    <input type="text" value={pass} onChange={(e)=>setPass(e.target.value)}></input>
     <button type={submit}></button>
     </form></>)
 }
