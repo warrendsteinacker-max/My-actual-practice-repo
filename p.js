@@ -107,13 +107,13 @@ const login = () => {
     const [email, setMail] = useState()
     const [pass, setPass] = useState()
 
-    const Lfunc = async() => {
-        e.perventDefault()
+    const Lfunc = async(e) => {
+        e.preventDefault()
         try
         {
-            const userd = axios.post('/log', {email, pass})
+            const res = await axios.post('/log', {email, pass})
             if(userd){
-                localStorage.setItem('user', JSON.stringify(userd))
+                localStorage.setItem('user', JSON.stringify(res.data))
                 nav('/home')
             }
         }
