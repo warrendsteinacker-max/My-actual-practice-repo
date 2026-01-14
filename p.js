@@ -136,16 +136,17 @@ const login = () => {
 
 
 const Lpage = () => {
-    const LLfunnc = async(e) => {
-        e.preventDefault
-        const [E, setE] = useState()
-        const [P, setP] = useState()
-        const data = await axios.post('/login', {email, pass})
+    const [E, setE] = useState()
+    const [P, setP] = useState()
         
-        if(res.ok){
-            localStorage.setItem('userd', JSON.stringify({name: res.e, age: res.age}))
-            localStorage.setItem('token', JSON.stringify({T: res.token}))
-            localStorage.setItem('role', JSON.stringify({R: res.role}))
+    const LLfunnc = async(e) => {
+        e.preventDefault()
+        const res = await axios.post('/login', {email, pass})
+        const data = res.data
+        if(data.status === 200){
+            localStorage.setItem('userd', JSON.stringify({name: data.e, age: data.age}))
+            localStorage.setItem('token', JSON.stringify({T: data.token}))
+            localStorage.setItem('role', JSON.stringify({R: data.role}))
             navigate('/H')
         }
     }    
