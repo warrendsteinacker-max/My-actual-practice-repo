@@ -167,7 +167,19 @@ const Lpage = () => {
         </>)
 }
 
-const Proroute = ()
+const Proroute = ({Aroles}) => {
+    const role = JSON.parse(localStorage.getItem('role'))
+    const {isauth} = useContext(Datap)    
+    if(!Aroles.includes(role)){
+        <Navigate to="/"/>
+    }
+    if(isauth === false){
+        <Navigate to="/"/>
+    }
+    else{
+        return <Outlet/>
+    }
+}
 
 //////////remeber to leave thes so I can prac makeing whol proj
 
