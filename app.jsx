@@ -9,7 +9,7 @@ const App = () => { // Removed 'async'
         e.preventDefault(); // Prevents page reload
         try {
             // Point this to your node.js server address
-            const res = await axios.post("/login", { pass: p });
+            const res = await axios.post("http://localhost:5173/login", { pass: p });
             
             if (res.status === 200) {
                 const userRole = res.data.User.role; // Access data through .data
