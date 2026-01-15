@@ -1,1 +1,0 @@
-const Users = [{pass: 1111, role: A}, ]
