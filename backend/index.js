@@ -3,7 +3,7 @@ import Users from './data.js';
 
 const app = express()
 
-app.post('/login', (req, res)=>{
+app.post('http://localhost:5173/login', (req, res)=>{
     try{
     const {pass} = req.body
     const user = Users.find((U)=> U.pass === pass) 

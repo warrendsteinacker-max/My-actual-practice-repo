@@ -9,10 +9,10 @@ const App = () => { // Removed 'async'
         e.preventDefault(); // Prevents page reload
         try {
             // Point this to your node.js server address
-            const res = await axios.post("http://localhost:3000/login", { pass: p });
+            const res = await axios.post("/login", { pass: p });
             
             if (res.status === 200) {
-                const userRole = res.data.role; // Access data through .data
+                const userRole = res.data.User.role; // Access data through .data
                 localStorage.setItem('user', userRole);
                 setRole(userRole); // Update state to trigger a re-render
             }
