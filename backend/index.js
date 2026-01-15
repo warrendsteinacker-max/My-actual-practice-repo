@@ -1,7 +1,11 @@
 import express from 'express';
 import Users from './data.js';
+import cors from 'cors'
+
 
 const app = express()
+const coreop = {orgin: '*', methods: ['GET', 'POST'], credentials: true, optionsSuccessStatus: 200}
+app.use(cors(coreop))
 
 app.post('http://localhost:8000/login', (req, res)=>{
     try{
