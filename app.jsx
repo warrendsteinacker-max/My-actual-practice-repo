@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 
 const App = () => {
@@ -64,6 +64,7 @@ const App = () => {
     const [NF, setNF] = useState(false)
     const [E, setE] = useState(true)
     const [pass, setP] = useState('')
+    const reff = useRef(null)
     const Mpost = async(e) => {
         e.preventDefault()
         try{
@@ -71,6 +72,7 @@ const App = () => {
             if(res.status === 404){
                 setNF(true)
             }
+            reff.current.style.color = 'red'
         }
         catch(error){
             console.error(error.message)
@@ -79,7 +81,7 @@ const App = () => {
     }
 
     return(<>
-            {E && <p ref={ref}>error</p>}
+            {E && <p ref={reff}>error</p>}
             <form onSubmit={Mpost}>
                 <input type="password" value={pass} onChange={(e)=>setP(e.target.value)}/>
                 <button type="submit">Make Post</button>
