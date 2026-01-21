@@ -62,7 +62,7 @@ const App = () => {
     // );
 
     const [NF, setNF] = useState(false)
-    const [E, setE] = useState(false)
+    const [E, setE] = useState(true)
     const [pass, setP] = useState('')
     const Mpost = async(e) => {
         e.preventDefault()
@@ -79,6 +79,7 @@ const App = () => {
     }
 
     return(<>
+            {E && <p>error</p>}
             <form onSubmit={Mpost}>
                 <input type="password" value={pass} onChange={(e)=>setP(e.target.value)}/>
                 <button type="submit">Make Post</button>
