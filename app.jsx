@@ -102,6 +102,7 @@ const App = () => {
 
     return(<>
             {E && <p ref={reff}>error</p>}
+            <div><p>H</p><p>H</p></div>
             <form onSubmit={Mpost}>
                 <input type="password" value={pass} onChange={(e)=>setP(e.target.value)}/>
                 <button type="submit">Make Post</button>
