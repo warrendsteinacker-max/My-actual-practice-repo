@@ -103,6 +103,7 @@ const App = () => {
     return(<>
             {E && <p ref={reff}>error</p>}
             <div style={{display: "flex", gap: '20px', flexDirection: 'column'}}><p>H</p><p>H</p></div>
+            <img src='./public/textures' alt='is pic'/>
             <form onSubmit={Mpost}>
                 <input type="password" value={pass} onChange={(e)=>setP(e.target.value)}/>
                 <button type="submit">Make Post</button>
