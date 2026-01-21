@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { AlwaysStencilFunc } from "three/src/constants.js";
 
 const App = () => {
     // const [p, setP] = useState("");
@@ -67,14 +68,16 @@ const App = () => {
     const reff = useRef(null)
     const [id, setId] = useState(1)
 
-    useEffect(async()=>{
+    useEffect(()=>{
+    const fetchd = async() =>{
     try{
         const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
         console.log(res.data)
     }
     catch(error){
         console.error(error.message)
-    }
+    }}
+    fetchd()
     }, [id])
 
     const newid = () => {
