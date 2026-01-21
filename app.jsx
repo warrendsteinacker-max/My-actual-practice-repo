@@ -65,6 +65,23 @@ const App = () => {
     const [E, setE] = useState(true)
     const [pass, setP] = useState('')
     const reff = useRef(null)
+    const [id, setId] = useState(0)
+
+    useEffect(async()=>{
+    try{
+        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        console.log(res.data)
+    }
+    catch(error){
+        console.error(error.message)
+    }
+    }, [id])
+
+    const newid = () => {
+        const nid = id + 1
+        setId(nid)
+    }
+
     const Mpost = async(e) => {
         e.preventDefault()
         try{
@@ -86,6 +103,7 @@ const App = () => {
                 <input type="password" value={pass} onChange={(e)=>setP(e.target.value)}/>
                 <button type="submit">Make Post</button>
             </form>
+            <button onClick={newid}>fetch data</button>
         </>)
 };
 
