@@ -65,9 +65,9 @@ const App = () => {
     const [E, setE] = useState(false)
     const [pass, setP] = useState('')
     const Mpost = async(e) => {
-        e.perventDefault()
+        e.preventDefault()
         try{
-            const res = axios.post('http://localhost:8000/login', {pass: pass})
+            const res = await axios.post('http://localhost:8000/login', {pass: pass})
             if(res.status === 404){
                 setNF(true)
             }
