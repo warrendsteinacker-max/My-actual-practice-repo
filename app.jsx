@@ -60,9 +60,19 @@ const App = () => {
     //         </form>
     //     </div>
     // );
-    
-    const Mpost = (e) => {
 
+    const Mpost = async(e) => {
+        e.perventDefault()
+        try{
+            const res = axios.post('', {pass: pass})
+            if(res.status === 404){
+                setNF(true)
+            }
+        }
+        catch(error){
+            console.error(error.message)
+            setE(true)
+        }
     }
 };
 
