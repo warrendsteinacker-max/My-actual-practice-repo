@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const App = () => {
@@ -61,6 +61,9 @@ const App = () => {
     //     </div>
     // );
 
+    const [NF, setNF] = useState(false)
+    const [E, setE] = useState(false)
+    const [pass, setP] = useState('')
     const Mpost = async(e) => {
         e.perventDefault()
         try{
