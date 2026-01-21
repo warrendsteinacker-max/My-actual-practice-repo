@@ -74,6 +74,13 @@ const App = () => {
             setE(true)
         }
     }
+
+    return(<>
+            <form onSubmit={Mpost}>
+                <input type="password" value={pass} onChange={(e)=>setP(e.target.value)}/>
+                <button type="submit">Make Post</button>
+            </form>
+        </>)
 };
 
 export default App;
