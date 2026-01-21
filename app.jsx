@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { AlwaysStencilFunc } from "three/src/constants.js";
+
 
 const App = () => {
     // const [p, setP] = useState("");
@@ -102,7 +102,7 @@ const App = () => {
 
     return(<>
             {E && <p ref={reff}>error</p>}
-            <div style={{display: "flex", gap: '20px', flexDirection: 'column'}}><p>H</p><p>H</p></div>
+            <div style={{display: "flex", gap: '20px', flexDirection: 'column'}}><p>H</p><p>H</p><a style={{textDecoration: 'none'}} href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#sent/KtbxLvHkRzNzxCLRzdlxFJJctRvQRZcRDB">go to</a></div>
             <img src='./public/textures' alt='is pic'/>
             <form onSubmit={Mpost}>
                 <input type="password" value={pass} onChange={(e)=>setP(e.target.value)}/>
