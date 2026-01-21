@@ -67,7 +67,7 @@ const App = () => {
     const Mpost = async(e) => {
         e.perventDefault()
         try{
-            const res = axios.post('', {pass: pass})
+            const res = axios.post('http://localhost:8000/login', {pass: pass})
             if(res.status === 404){
                 setNF(true)
             }
