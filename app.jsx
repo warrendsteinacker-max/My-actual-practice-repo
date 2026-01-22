@@ -103,9 +103,9 @@ const App = () => {
     return(<>
             <header>
             {E && <p ref={reff}>error</p>}
-            <div style={{display: "flex", gap: '20px', justifyContent: ''}}><p>H</p><p>H</p><nav style={{textDecoration: 'none'}}><a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#sent/KtbxLvHkRzNzxCLRzdlxFJJctRvQRZcRDB">go to</a></nav></div>
+            <div style={{display: "flex", gap: '20px', justifyContent: 'right'}}><p>H</p><p>H</p><nav style={{textDecoration: 'none'}}><a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#sent/KtbxLvHkRzNzxCLRzdlxFJJctRvQRZcRDB">go to</a></nav></div>
             </header>
-            <main style={{padding: '20px'}}><img src='./public/textures' alt='is pic'/>
+            <main style={{padding: '150px'}}><img src='./public/textures' alt='is pic'/>
             <form onSubmit={Mpost}>
                 <input type="password" value={pass} onChange={(e)=>setP(e.target.value)}/>
                 <button type="submit">Make Post</button>
@@ -113,6 +113,7 @@ const App = () => {
             <button onClick={newid}>fetch data</button>
             </main>
             <footer>call this num for more info</footer>
+            <></>
         </>)
 };
 
