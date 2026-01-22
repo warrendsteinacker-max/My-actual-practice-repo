@@ -113,7 +113,7 @@ const App = () => {
             <button onClick={newid}>fetch data</button>
             </main>
             <footer>call this num for more info</footer>
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(4 1fr)' }}></div>
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)' }}></div>
         </>)
 };
 
