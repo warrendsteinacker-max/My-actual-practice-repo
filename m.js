@@ -1,5 +1,8 @@
-var FsN = 'me'
+// function makeFN() {
+const FsN = 'me'
 
-var LsN = 'hunk'
+const LsN = 'hunk'
 
-var FN = FsN.concat(LsN)
+const FN = FsN.concat(" ", LsN)
+
+console.log(FN)
