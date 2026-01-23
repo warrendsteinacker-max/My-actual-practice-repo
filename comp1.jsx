@@ -1,7 +1,8 @@
 import React from 'react'
+import axios from 'axios';
 
 const comp1 = () => {
-    function MernUploader() {
+
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
@@ -17,9 +18,9 @@ const comp1 = () => {
     }
   };
 
-  return (<input type="file" onChange={handleFileUpload} />;
+  return (<input type="file" onChange={handleFileUpload} />)
 }
-  
+
 
 
 export default comp1
