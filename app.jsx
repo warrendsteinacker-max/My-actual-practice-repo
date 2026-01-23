@@ -102,7 +102,7 @@ const App = () => {
 
     return(<>
 
-<div style={{width: '100px', width: '100px', justifyContent: 'flex-end', alignItems: 'flex-start'}}>hellor</div>
+<div style={{width: '100px', height: '100px', justifyContent: 'flex-end', alignItems: 'flex-start', backgroundColor: 'red'}}>hellor</div>
         </>)
 };
 
