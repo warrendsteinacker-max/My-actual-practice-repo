@@ -62,43 +62,43 @@ const App = () => {
     //     </div>
     // );
 
-    const [NF, setNF] = useState(false)
-    const [E, setE] = useState(true)
-    const [pass, setP] = useState('')
-    const reff = useRef(null)
-    const [id, setId] = useState(1)
+    // const [NF, setNF] = useState(false)
+    // const [E, setE] = useState(true)
+    // const [pass, setP] = useState('')
+    // const reff = useRef(null)
+    // const [id, setId] = useState(1)
 
-    useEffect(()=>{
-    const fetchd = async() =>{
-    try{
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        console.log(res.data)
-    }
-    catch(error){
-        console.error(error.message)
-    }}
-    fetchd()
-    }, [id])
+    // useEffect(()=>{
+    // const fetchd = async() =>{
+    // try{
+    //     const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    //     console.log(res.data)
+    // }
+    // catch(error){
+    //     console.error(error.message)
+    // }}
+    // fetchd()
+    // }, [id])
 
-    const newid = () => {
-        const nid = id + 1
-        setId(nid)
-    }
+    // const newid = () => {
+    //     const nid = id + 1
+    //     setId(nid)
+    // }
 
-    const Mpost = async(e) => {
-        e.preventDefault()
-        try{
-            const res = await axios.post('http://localhost:8000/login', {pass: pass})
-            if(res.status === 404){
-                setNF(true)
-            }
-            reff.current.style.color = 'red'
-        }
-        catch(error){
-            console.error(error.message)
-            setE(true)
-        }
-    }
+    // const Mpost = async(e) => {
+    //     e.preventDefault()
+    //     try{
+    //         const res = await axios.post('http://localhost:8000/login', {pass: pass})
+    //         if(res.status === 404){
+    //             setNF(true)
+    //         }
+    //         reff.current.style.color = 'red'
+    //     }
+    //     catch(error){
+    //         console.error(error.message)
+    //         setE(true)
+    //     }
+    // }
 
     return(<>
 
