@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 const App = () => {
@@ -101,9 +102,13 @@ const App = () => {
     // }
 
     return(<>
-<div style={{backgroundColor: 'green'}}>
-<div style={{flexDirection: 'grid', width: '100px', height: '100px', justifyContent: 'flex-start', alignItems: 'flex-end', backgroundColor: 'red'}}>hellor</div>
-</div>
+        <BrowserRouter>
+        <Routes>
+        <Route path='' element={}/>
+        <Route path='' element={}/>
+        <Route path='' element={}/>
+        </Routes>
+        </BrowserRouter>
         </>)
 };
 
