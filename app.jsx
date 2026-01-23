@@ -1,7 +1,7 @@
 // import React, { useState, useRef, useEffect } from "react";
 // import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import comp1 from "./comp1";
+import Comp1 from "./comp1";
 
 
 const App = () => {
@@ -105,9 +105,7 @@ const App = () => {
     return(<>
         <BrowserRouter>
         <Routes>
-        <Route path='/' element={comp1}/>
-        {/* <Route path='' element={}/>
-        <Route path='' element={}/> */}
+        <Route path='/' element={<Comp1/>}/>
         </Routes>
         </BrowserRouter>
         </>)
