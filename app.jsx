@@ -101,7 +101,9 @@ const App = () => {
     }
 
     return(<>
-            <header>
+
+    
+            {/* <header>
             {E && <p ref={reff}>error</p>}
             <div style={{display: "flex", gap: '20px', justifyContent: 'right'}}><p>H</p><p>H</p><nav style={{textDecoration: 'none'}}><a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#sent/KtbxLvHkRzNzxCLRzdlxFJJctRvQRZcRDB">go to</a></nav></div>
             </header>
@@ -111,10 +113,11 @@ const App = () => {
                 <button type="submit">Make Post</button>
             </form>
             <button onClick={newid}>fetch data</button>
+            <div><p styles={{color: 'red'}}>h</p></div>
             </main>
             <footer>call this num for more info</footer>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderWidth: '10px solide black', boxSizing: 'border-box', padding: '10px, 10px', margin: '100px'}}><button>116</button><button>115</button><button>114</button><button>113</button><button>112</button></div>
-            <p styles={{color: 'red'}}></p>
+             */}
         </>)
 };
 
