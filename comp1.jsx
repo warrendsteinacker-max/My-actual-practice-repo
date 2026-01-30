@@ -38,5 +38,4 @@ export default Comp1
 
 ///////
 
-console.log('hi')
 //////
